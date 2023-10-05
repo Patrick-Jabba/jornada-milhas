@@ -2,15 +2,15 @@
   <mat-card-content>
     <img
         mat-card-image
-        src="{{ src }}"
-        alt="Avatar depoente"
+        src="{{ depoimento.avatar }}"
+        alt="{{ depoimento.autor }}"
     >
     <ul>
       <li>
-       {{ depoimento }}
+       {{ depoimento.texto }}
       </li>
       <li>
-        <strong>{{ autoria }}</strong>
+        <strong>{{ depoimento.autor }}</strong>
       </li>
     </ul>
   </mat-card-content>
