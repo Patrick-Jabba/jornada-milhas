@@ -1,0 +1,28 @@
+.card-depoimentos {
+  max-width: 20rem;
+  background-color: #fef7ff;
+  border: none;
+
+  img {
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+    margin-top: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+  }
+
+  mat-card-content {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+  }
+}

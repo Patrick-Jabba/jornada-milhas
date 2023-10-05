@@ -1,0 +1,12 @@
+.homepage {
+  padding: 2rem;
+  &.primary{
+    background-color: #FEF7FF;
+    border: 1px solid #CAC4D0;
+    border-radius: 0.75rem;
+  }
+  &.secondary{
+    background-color: #F5F5F5;
+    border-radius: 1rem;
+  }
+}
