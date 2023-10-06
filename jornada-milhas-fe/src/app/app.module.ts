@@ -13,6 +13,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import  { MatDialogModule } from '@angular/material/dialog';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
@@ -29,8 +31,10 @@ import { FormBuscaComponent } from './shared/form-busca/form-busca.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { BotaoControleComponent } from './shared/botao-controle/botao-controle.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PromocoesComponent } from './home/promocoes/promocoes.component';
-import { DepoimentosComponent } from './home/depoimentos/depoimentos.component';
+import { PromocoesComponent } from './pages/home/promocoes/promocoes.component';
+import { DepoimentosComponent } from './pages/home/depoimentos/depoimentos.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { DropdownUfComponent } from './shared/form-busca/dropdown-uf/dropdown-uf.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import { DepoimentosComponent } from './home/depoimentos/depoimentos.component';
     ModalComponent,
     BotaoControleComponent,
     PromocoesComponent,
-    DepoimentosComponent
+    DepoimentosComponent,
+    DropdownUfComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,9 @@ import { DepoimentosComponent } from './home/depoimentos/depoimentos.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [
     MatNativeDateModule

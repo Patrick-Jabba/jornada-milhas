@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../../environments/environment.development';
 import { Injectable } from '@angular/core';
-import { Depoimento } from '../types/types';
+import { Depoimento, FormBusca } from '../types/types';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,4 +15,6 @@ export class DepoimentoService {
   listar(): Observable<Depoimento[]> {
     return this.httpClient.get<Depoimento[]>(`${this.apiUrl}/depoimentos`)
   }
+
+
 }
