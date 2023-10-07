@@ -1,0 +1,15 @@
+<ul>
+  <li>{{ titulo }}</li>
+  <li>{{ subtitulo }}</li>
+  <li>
+    <app-botao-controle
+      operacao="decrementar"
+      (click)="decrementar()"
+    />
+    <span> {{ quantidadePassageiros }}</span>
+    <app-botao-controle
+      operacao="incrementar"
+      (click)="incrementar()"
+    />
+  </li>
+</ul>
