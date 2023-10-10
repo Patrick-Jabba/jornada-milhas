@@ -27,7 +27,7 @@ export class FormBuscaComponent {
   }
 
   buscar() {
-    console.log(this.formBuscaService.formBusca.value)
+    console.log(this.formBuscaService.formBusca.value, "🔥🔥🔥🔥🔥")
   }
 
   // onSubmit (): void {

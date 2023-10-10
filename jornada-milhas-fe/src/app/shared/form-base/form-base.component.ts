@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UnidadeFederativa } from 'src/app/core/types/types';
+// import { FormValidations } from '../form-validations';
 
 @Component({
   selector: 'app-form-base',
@@ -15,19 +16,19 @@ export class FormBaseComponent implements OnInit {
 
   ngOnInit(): void {
     this.cadastroForm = this.formBuilder.group({
-      nome: [null, Validators.required],
-      nascimento: [null, Validators.required],
-      cpf: [null, Validators.required],
+      nome: [null, [Validators.required]],
+      nascimento: [null, [Validators.required]],
+      cpf: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       confirmarEmail: [null, [Validators.required, Validators.email]],
       senha: [null, [Validators.required, Validators.minLength(3)]],
       confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
-      aceitarTermos: [null, Validators.requiredTrue],
       genero: ['outro'],
-      telefone: [null, Validators.required],
-      cidade: [null, Validators.required],
-      estado: this.unidadeFederativaControl
-    })
+      telefone: [null, [Validators.required]],
+      cidade: [null, [Validators.required]],
+      aceitarTermos: [false, [Validators.requiredTrue]],
+      estado: this.unidadeFederativaControl,
+    });
   }
 
 

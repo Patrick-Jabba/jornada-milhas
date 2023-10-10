@@ -1,6 +1,6 @@
 <app-container>
   <mat-card>
-    <form [formGroup]="cadastroForm"></form>
+    <form [formGroup]="cadastroForm">
       <mat-card-title>Crie sua conta</mat-card-title>
 
       <section>
@@ -36,7 +36,7 @@
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Cidade</mat-label>
-              <input matInput formControlName="cidade" placeholder="Cidade">
+              <input matInput formControlName="cidade" placeholder="Digite sua cidade">
               <mat-error *ngIf="cadastroForm.get('cidade')?.errors">Cidade é obrigatória.</mat-error>
             </mat-form-field>
           </div>
@@ -59,9 +59,59 @@
               placeholder="Estado"
               [controle]="unidadeFederativaControl"
             />
+            <mat-error class="custom-error" *ngIf="unidadeFederativaControl?.errors && unidadeFederativaControl?.touched">Estado é obrigatório</mat-error>
           </div>
         </div>
       </mat-card-content>
-
+      <mat-divider></mat-divider>
+      <div class="acessoPerfil">
+        <h2>Dados de acesso</h2>
+      </div>
+      <mat-card-content>
+        <div class="grid-container">
+          <div class="grid-item">
+            <mat-form-field appearance="outline">
+              <mat-label>E-mail</mat-label>
+              <input matInput formControlName="email" placeholder="Digite seu e-mail">
+              <mat-error *ngIf="cadastroForm.get('email')?.errors?.['required']">E-mail é obrigatório.</mat-error>
+              <mat-error *ngIf="cadastroForm.get('email')?.errors?.['email']">Formato de e-mail inválido.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Senha</mat-label>
+              <input matInput formControlName="senha" placeholder="Digite sua senha">
+              <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['required']">Senha é obrigatória.</mat-error>
+              <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['minLength']">Senha deve ter no mínimo 3 caracteres.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="grid-item">
+            <mat-form-field appearance="outline">
+              <mat-label>Confirmar E-mail</mat-label>
+              <input matInput formControlName="confirmarEmail" placeholder="Confirme seu e-mail">
+              <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['required']">Campo é obrigatório.</mat-error>
+              <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['email']">E-mail inválido.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Confirmar senha</mat-label>
+              <input matInput formControlName="confirmarSenha" placeholder="Confirmar senha">
+              <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">Senha é obrigatória.</mat-error>
+              <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['minLength']">Senha deve ter no mínimo 3 caracteres.</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <mat-checkbox formControlName="aceitarTermos" color="primary" class="full-width">Li e aceito os termos e condições deste cadastro</mat-checkbox>
+        <mat-error *ngIf="cadastroForm.get('aceitarTermos')?.invalid && cadastroForm.get('aceitarTermos')?.dirty">
+          Você precisa aceitar os termos e condições para efetuar o cadastro.
+        </mat-error>
+      </mat-card-content>
+      <mat-card-actions class="full-width">
+        <button
+          mat-flat-button
+          [disabled]="cadastroForm.invalid"
+          color="primary"
+        >
+          CADASTRAR
+        </button>
+      </mat-card-actions>
+    </form>
   </mat-card>
 </app-container>

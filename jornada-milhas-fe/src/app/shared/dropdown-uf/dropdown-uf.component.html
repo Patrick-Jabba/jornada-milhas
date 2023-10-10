@@ -6,7 +6,7 @@
   <input matInput [matAutocomplete]="auto">
   <mat-icon matSuffix>search</mat-icon>
   <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of ufs" [value]="option.nome">
+    <mat-option *ngFor="let option of unidadesFederativas" [value]="option.nome">
       {{ option.nome }}
     </mat-option>
   </mat-autocomplete>
