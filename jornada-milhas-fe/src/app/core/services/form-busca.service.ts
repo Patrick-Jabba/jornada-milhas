@@ -42,8 +42,6 @@ export class FormBuscaService {
         tipo
       })
     }
-
-    console.log(tipo)
   }
 
   getDescricaoPassageiros(): string {

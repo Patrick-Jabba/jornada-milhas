@@ -1,0 +1,67 @@
+<app-container>
+  <mat-card>
+    <form [formGroup]="cadastroForm"></form>
+      <mat-card-title>Crie sua conta</mat-card-title>
+
+      <section>
+        <div class="acoesPerfil">
+          <h2>Dados Pessoais</h2>
+          <button mat-stroked-button color="primary">
+            <mat-icon>logout</mat-icon>
+            DESLOGAR
+          </button>
+        </div>
+      </section>
+
+      <mat-card-content>
+        <div class="grid-container">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Nome">
+            <mat-error *ngIf="cadastroForm.get('nome')?.errors">Nome é obrigatório.</mat-error>
+          </mat-form-field>
+          <div class="grid-item">
+            <mat-form-field appearance="outline">
+              <mat-label>Data de Nascimento</mat-label>
+              <mat-datepicker #nascimento></mat-datepicker>
+              <input [matDatepicker]="nascimento" matInput formControlName="nascimento" placeholder="Data de Nascimento">
+              <mat-error *ngIf="cadastroForm.get('nascimento')?.errors?.['required']">Data de nascimento é obrigatória</mat-error>
+              <mat-datepicker-toggle matSuffix [for]="nascimento"></mat-datepicker-toggle>
+              <mat-error *ngIf="cadastroForm.get('nome')?.errors">Nome é obrigatório.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>CPF</mat-label>
+              <input matInput formControlName="cpf" placeholder="Digite seu CPF">
+              <mat-error *ngIf="cadastroForm.get('cpf')?.errors">CPF é obrigatório.</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Cidade</mat-label>
+              <input matInput formControlName="cidade" placeholder="Cidade">
+              <mat-error *ngIf="cadastroForm.get('cidade')?.errors">Cidade é obrigatória.</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="grid-item">
+            <div class="radio-group">
+              <label>Gênero</label>
+              <mat-radio-group formControlName="genero" color="primary">
+                <mat-radio-button value="masculino">Masculino</mat-radio-button>
+                <mat-radio-button value="feminino">Feminino</mat-radio-button>
+                <mat-radio-button value="outro">Prefiro não informar</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Telefone</mat-label>
+              <input matInput formControlName="telefone" placeholder="+XX XXXXX-XXXX">
+              <mat-error *ngIf="cadastroForm.get('telefone')?.errors">Telefone é obrigatório.</mat-error>
+            </mat-form-field>
+            <app-dropdown-uf
+              label="Estado"
+              placeholder="Estado"
+              [controle]="unidadeFederativaControl"
+            />
+          </div>
+        </div>
+      </mat-card-content>
+
+  </mat-card>
+</app-container>

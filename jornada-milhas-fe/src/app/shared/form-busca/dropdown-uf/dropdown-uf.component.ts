@@ -13,8 +13,8 @@ export class DropdownUfComponent implements OnInit {
   @Input() label: string = '';
   @Input() iconePrefixo: string = '';
   @Input() controle!: FormControl;
-  // @Input() options: UnidadeFederativa[] = [];
-  // estadosFiltrados$?: Observable<UnidadeFederativa[]>;
+  @Input() options: UnidadeFederativa[] = [];
+  estadosFiltrados$?: Observable<UnidadeFederativa[]>;
 
   ufs: UnidadeFederativa[] = [];
 

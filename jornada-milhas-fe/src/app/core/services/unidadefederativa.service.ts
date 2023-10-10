@@ -11,7 +11,7 @@ export class UnidadefederativaService {
   private apiUrl: string = environment.apiUrl
   private cache$?: Observable<UnidadeFederativa[]>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   listar(): Observable<UnidadeFederativa[]> {
     if(!this.cache$){
@@ -24,6 +24,6 @@ export class UnidadefederativaService {
   }
 
   private requestEstados(): Observable<UnidadeFederativa[]>{
-    return this.http.get<UnidadeFederativa[]>(`${this.apiUrl}/estados`)
+    return this.httpClient.get<UnidadeFederativa[]>(`${this.apiUrl}/estados`)
   }
 }
