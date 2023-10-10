@@ -14,6 +14,18 @@ export interface Depoimento {
   avatar: string
 }
 
+export interface PessoaUsuaria {
+    nome: string,
+    nascimento: string,
+    cpf: string,
+    telefone: string,
+    email: string,
+    senha: string,
+    genero: string,
+    cidade: string,
+    estado:  UnidadeFederativa
+}
+
 export interface UnidadeFederativa {
   id: number,
   nome: string,
