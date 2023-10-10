@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable, map, startWith } from 'rxjs';
+import { Observable } from 'rxjs';
 import { UnidadefederativaService } from 'src/app/core/services/unidadefederativa.service';
 import { UnidadeFederativa } from 'src/app/core/types/types';
 
@@ -12,8 +12,8 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
 export class DropdownUfComponent implements OnInit {
   @Input() label: string = '';
   @Input() iconePrefixo: string = '';
-  @Input() controle!: FormControl;
   @Input() placeholder: string = '';
+  @Input() controle!: FormControl;
   @Input() options: UnidadeFederativa[] = [];
 
   unidadesFederativas: UnidadeFederativa[] = [];
@@ -26,10 +26,10 @@ export class DropdownUfComponent implements OnInit {
       dados => {
         this.unidadesFederativas = dados;
       })
-    this.estadosFiltrados$ = this.controle.valueChanges.pipe(
-      startWith(''),
-      map(value => this.filtrarUfs(value))
-    )
+    // this.estadosFiltrados$ = this.controle.valueChanges.pipe(
+    //   startWith(''),
+    //   map(value => this.filtrarUfs(value))
+    // )
   }
 
   filtrarUfs(value: string | UnidadeFederativa): UnidadeFederativa[]{

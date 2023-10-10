@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 import { UnidadefederativaService } from 'src/app/core/services/unidadefederativa.service';
-import { FormBuscaValue, UnidadeFederativa } from 'src/app/core/types/types';
+import { UnidadeFederativa } from 'src/app/core/types/types';
 
 @Component({
   selector: 'app-form-busca',

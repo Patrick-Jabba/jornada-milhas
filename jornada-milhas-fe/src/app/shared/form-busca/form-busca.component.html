@@ -29,14 +29,17 @@
     </div>
 
     <div class="flex-container">
-
-      <app-dropdown-uf label="Origem" matPrefix="flight_takeoff"/>
+      <div class="drop-container">
+        <app-dropdown-uf label="Origem" matPrefix="flight_takeoff" placeholder="Origem"/>
+      </div>
 
       <button mat-icon-button (click)="formBuscaService.trocarOrigemDestino()">
         <mat-icon>sync_alt</mat-icon>
       </button>
 
-      <app-dropdown-uf label="Destino" matPrefix="flight_land"/>
+      <div class="drop-container">
+        <app-dropdown-uf label="Destino" matPrefix="flight_land" placeholder="Destino"/>
+      </div>
 
       <mat-form-field class="input-container" appearance="outline">
         <mat-label>Data de ida</mat-label>

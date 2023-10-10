@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UnidadeFederativa } from 'src/app/core/types/types';
-// import { FormValidations } from '../form-validations';
 
 @Component({
   selector: 'app-form-base',
@@ -11,6 +10,9 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
 export class FormBaseComponent implements OnInit {
   cadastroForm!: FormGroup
   unidadeFederativaControl = new FormControl<UnidadeFederativa | null>(null, Validators.required);
+
+  @Input() perfilComponent!: boolean;
+  @Output() acaoClique: EventEmitter<any> = new EventEmitter<any>
 
   constructor(private formBuilder: FormBuilder){}
 
@@ -31,5 +33,8 @@ export class FormBaseComponent implements OnInit {
     });
   }
 
+  executarAcao(){
+    this.acaoClique.emit();
+  }
 
 }
