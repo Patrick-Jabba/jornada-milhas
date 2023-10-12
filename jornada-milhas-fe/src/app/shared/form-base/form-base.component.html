@@ -72,13 +72,13 @@
           <div class="grid-item">
             <mat-form-field appearance="outline">
               <mat-label>E-mail</mat-label>
-              <input matInput formControlName="email" placeholder="Digite seu e-mail">
+              <input matInput formControlName="email" type="email" placeholder="Digite seu e-mail">
               <mat-error *ngIf="cadastroForm.get('email')?.errors?.['required']">E-mail é obrigatório.</mat-error>
               <mat-error *ngIf="cadastroForm.get('email')?.errors?.['email']">Formato de e-mail inválido.</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Senha</mat-label>
-              <input matInput formControlName="senha" placeholder="Digite sua senha">
+              <input matInput formControlName="senha" type="password" placeholder="Digite sua senha">
               <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['required']">Senha é obrigatória.</mat-error>
               <mat-error *ngIf="cadastroForm.get('senha')?.errors?.['minLength']">Senha deve ter no mínimo 3 caracteres.</mat-error>
             </mat-form-field>
@@ -86,15 +86,17 @@
           <div class="grid-item">
             <mat-form-field appearance="outline">
               <mat-label>Confirmar E-mail</mat-label>
-              <input matInput formControlName="confirmarEmail" placeholder="Confirme seu e-mail">
+              <input matInput formControlName="confirmarEmail" type="email" placeholder="Confirme seu e-mail">
               <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['required']">Campo é obrigatório.</mat-error>
               <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['email']">E-mail inválido.</mat-error>
+              <mat-error *ngIf="cadastroForm.get('confirmarEmail')?.errors?.['equalTo']">E-mail não coincide.</mat-error>
             </mat-form-field>
             <mat-form-field appearance="outline">
               <mat-label>Confirmar senha</mat-label>
-              <input matInput formControlName="confirmarSenha" placeholder="Confirmar senha">
+              <input matInput formControlName="confirmarSenha" type="password" placeholder="Confirmar senha">
               <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['required']">Senha é obrigatória.</mat-error>
               <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['minLength']">Senha deve ter no mínimo 3 caracteres.</mat-error>
+              <mat-error *ngIf="cadastroForm.get('confirmarSenha')?.errors?.['equalTo']">Senha não coincide.</mat-error>
             </mat-form-field>
           </div>
         </div>

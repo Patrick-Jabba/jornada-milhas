@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from 'src/app/core/services/formulario.service';
-import { UnidadeFederativa } from 'src/app/core/types/types';
+import {UnidadeFederativa } from 'src/app/core/types/types';
+import { FormValidations } from '../form-validations';
 
 @Component({
   selector: 'app-form-base',
@@ -16,27 +17,28 @@ export class FormBaseComponent implements OnInit {
   @Output() acaoClique: EventEmitter<any> = new EventEmitter<any>
 
   constructor(
-    private formularioService: FormularioService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private formularioService: FormularioService
   ){}
+
 
   ngOnInit(): void {
     this.cadastroForm = this.formBuilder.group({
       nome: [null, [Validators.required]],
       nascimento: [null, [Validators.required]],
-      cpf: [null, [Validators.required]],
-      email: [null, [Validators.required, Validators.email]],
-      confirmarEmail: [null, [Validators.required, Validators.email]],
-      senha: [null, [Validators.required, Validators.minLength(3)]],
-      confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
+      cpf: ['1333', [Validators.required]],
+      email: ['123@EmailValidator.com', [Validators.required, Validators.email]],
+      confirmarEmail: ['123@EmailValidator.com', [Validators.required, Validators.email, FormValidations.equalTo('email')]],
+      senha: ['1234556', [Validators.required, Validators.minLength(3)]],
+      confirmarSenha: ['1234556', [Validators.required, Validators.minLength(3), FormValidations.equalTo('senha')]],
       genero: ['outro'],
-      telefone: [null, [Validators.required]],
-      cidade: [null, [Validators.required]],
+      telefone: ['219999', [Validators.required]],
+      cidade: ['Tere', [Validators.required]],
       aceitarTermos: [false, [Validators.requiredTrue]],
       estado: this.unidadeFederativaControl,
     });
 
-    this.formularioService.setCadastro(this.cadastroForm)
+    this.formularioService.setDadosDoFormularioDeCadastro(this.cadastroForm)
   }
 
   executarAcao(){

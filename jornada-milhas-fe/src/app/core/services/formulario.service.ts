@@ -7,11 +7,11 @@ import { FormGroup } from '@angular/forms';
 export class FormularioService {
   cadastroForm: FormGroup | null = null;
 
-  getCadastro(): FormGroup | null{
+  getDadosDoFormularioDeCadastro(): FormGroup | null{
     return this.cadastroForm;
   }
 
-  setCadastro(form: FormGroup) {
+  setDadosDoFormularioDeCadastro(form: FormGroup) {
     this.cadastroForm = form;
   }
 }
