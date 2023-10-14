@@ -3,7 +3,7 @@ app-container {
   margin-bottom: 48px;
   margin-top: 32px;
 
-  .acoes-perfil {
+  .acoesPerfil {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -25,7 +25,15 @@ app-container {
       .radio-group {
         display: flex;
         flex-direction: column;
+        margin-bottom: 18px;
+      }
+
+      .drop-container {
         margin-bottom: 16px;
+        .custom-error {
+          font-size: 12px;
+          margin-left: 12px;
+        }
       }
     }
   }
@@ -35,7 +43,7 @@ app-container {
     font-size: 32px;
     font-weight: 400;
     margin-bottom: 32px;
-    margin-top: 40px
+    margin-top: 40px;
   }
 
   mat-card-actions {
@@ -56,12 +64,12 @@ app-container {
   h2 {
     font-weight: 400;
     font-size: 22px;
-    color: #1d1b20;
+    color: #1D1B20;
     margin-left: 16px;
   }
 
   .btn-editar {
-    background: #e6e0e9;
+    background: #E6E0E9;
   }
 
   button {
@@ -76,7 +84,7 @@ app-container {
     margin: 40px 16px 24px 0;
   }
 
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     .grid-container {
       grid-template-columns: 1fr;
     }
@@ -86,3 +94,15 @@ app-container {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
