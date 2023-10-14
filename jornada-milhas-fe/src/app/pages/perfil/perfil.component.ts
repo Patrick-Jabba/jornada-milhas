@@ -78,14 +78,11 @@ export class PerfilComponent implements OnInit {
         console.log('Erro ao atualizar cadastro', err);
       }
     })
-    console.log("PERFIL ATUALIZADO")
   }
 
   deslogar(){
     this.userService.logout();
-    this.tokenService.excluirToken();
     this.router.navigate(['/login'])
-    console.log("SAIR")
   }
 
 }

@@ -37,8 +37,8 @@ export class UserService {
     this.userSubject.next(null);
    }
 
-   estaLogado(){
-    this.tokenService.possuiToken();
+   estaLogado(): boolean{
+    return this.tokenService.possuiToken();
    }
 
 
