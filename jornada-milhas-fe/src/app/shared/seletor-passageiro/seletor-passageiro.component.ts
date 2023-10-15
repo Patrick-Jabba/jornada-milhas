@@ -26,9 +26,11 @@ export class SeletorPassageiroComponent implements ControlValueAccessor {
     this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    this.onTouch = fn;
+    this.onChange = fn;
   }
-  
+
+  setDisabledState?(isDisabled: boolean): void {}
+
 
   decrementar() {
     if(this.quantidadePassageiros > 0){

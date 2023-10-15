@@ -32,18 +32,6 @@ export interface UnidadeFederativa {
   sigla: string
 }
 
-export interface FormBusca {
-  somenteIda: FormControl<boolean | null>;
-  adultos: FormControl<number | null>;
-  criancas: FormControl<number | null>;
-  bebes: FormControl<number | null>;
-  tipo: FormControl<string | null>;
-  origem: FormControl<UnidadeFederativa | null>;
-  destino: FormControl<UnidadeFederativa | null>;
-  dataIda: FormControl<Date | null>;
-  dataVolta: FormControl<Date | null>;
-}
-
 export interface FormBuscaValue {
   somenteIda: boolean | null;
   adultos: number | null;
@@ -90,4 +78,35 @@ export interface Orcamento{
   preco: number;
   taxaEmbarque: number;
   total: number
+}
+
+export interface DadosBusca{
+  somenteIda?: boolean;
+  passageirosAdultos?: number;
+  passageirosCriancas?: number;
+  passageirosBebes?: number;
+  tipo?: string;
+  origemId?: number;
+  destinoId?: number;
+  precoMin?: number;
+  precoMax?: number;
+  conexoes?: number;
+  tempoVoo?: number;
+  dataIda: string;
+  dataVolta?: string;
+  companhiasId?: number[];
+  pagina: number;
+  porPagina: number;
+}
+
+export interface FormBusca {
+  somenteIda: FormControl<boolean | null>;
+  adultos: FormControl<number | null>;
+  criancas: FormControl<number | null>;
+  bebes: FormControl<number | null>;
+  tipo: FormControl<string | null>;
+  origem: FormControl<UnidadeFederativa | null>;
+  destino: FormControl<UnidadeFederativa | null>;
+  dataIda: FormControl<Date | null>;
+  dataVolta: FormControl<Date | null>;
 }
