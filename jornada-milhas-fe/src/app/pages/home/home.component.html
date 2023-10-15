@@ -5,8 +5,9 @@
   </app-banner>
 
   <app-container>
-    <h2>Passagens</h2>
-    <app-form-busca />
+    <app-form-busca
+      (realizarBusca)="navegarParaBusca($event)"
+    />
 
     <h2>Promoções</h2>
     <app-promocoes />

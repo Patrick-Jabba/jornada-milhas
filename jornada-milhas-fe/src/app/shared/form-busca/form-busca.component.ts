@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
-import { UnidadefederativaService } from 'src/app/core/services/unidadefederativa.service';
-import { UnidadeFederativa } from 'src/app/core/types/types';
 
 @Component({
   selector: 'app-form-busca',
@@ -9,29 +7,17 @@ import { UnidadeFederativa } from 'src/app/core/types/types';
   styleUrls: ['./form-busca.component.scss']
 })
 export class FormBuscaComponent {
-  // @Output() aoBuscar = new EventEmitter<Partial<FormBuscaValue>>();
+  @Output() realizarBusca = new EventEmitter();
 
-  ufs: UnidadeFederativa[] = []
-
-  // tipos: string[] = ['Econômica', 'Executiva']
-
-  constructor(
-    public formBuscaService: FormBuscaService,
-    private ufService: UnidadefederativaService
-  ) {
-
-    this.ufService.listar()
-      .subscribe(data => {
-        this.ufs = data;
-      })
-  }
+  constructor(public formBuscaService:FormBuscaService) {}
 
   buscar() {
-    console.log(this.formBuscaService.formBusca.value, "🔥🔥🔥🔥🔥")
+    if(this.formBuscaService.formEstaValido){
+      const formBuscaValue = this.formBuscaService.formBusca.value;
+      this.realizarBusca.emit(formBuscaValue);
+    } else {
+      alert('O formuário precisa ser preenchido.')
+    }
   }
-
-  // onSubmit (): void {
-  //   this.aoBuscar.emit(this.formBuscaService.formBusca.value);
-  // }
 
 }

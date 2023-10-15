@@ -5,11 +5,11 @@
   </mat-icon>
   <input
     matInput
+    [placeholder]="placeholder"
+    [formControl]="controle"
     [name]="label"
     ngDefaultControl
-    [formControl]="controle"
     [matAutocomplete]="auto"
-    [placeholder]="placeholder"
   >
   <mat-icon matSuffix>search</mat-icon>
   <mat-autocomplete [displayWith]="displayFn" autoActiveFirstOption #auto="matAutocomplete">
