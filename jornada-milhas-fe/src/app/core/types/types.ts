@@ -110,3 +110,9 @@ export interface FormBusca {
   dataIda: FormControl<Date | null>;
   dataVolta: FormControl<Date | null>;
 }
+
+export interface Destaques {
+  maisRapida: Passagem;
+  maisBarata: Passagem;
+  sugerida: Passagem;
+}

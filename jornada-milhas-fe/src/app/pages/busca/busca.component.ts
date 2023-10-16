@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs';
 import { FormBuscaService } from 'src/app/core/services/form-busca.service';
 import { PassagensService } from 'src/app/core/services/passagens.service';
 import { DadosBusca, Passagem } from 'src/app/core/types/types';
@@ -28,9 +29,14 @@ export class BuscaComponent implements OnInit{
 
     const busca = this.formBuscaService.formEstaValido ? this.formBuscaService.obterDadosDeBusca() : buscaPadrao;
 
-    this.passagemService.getPassagens(busca).subscribe(resposta => {
+    this.passagemService.getPassagens(busca)
+    .pipe(take(1))
+    .subscribe(resposta => {
             this.passagens = resposta.resultado;
-            console.log(resposta);
+            this.formBuscaService.formBusca.patchValue({
+              precoMin: resposta.precoMin,
+              precoMax: resposta.precoMax
+            })
           })
   }
 
